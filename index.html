@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Espessura de Lentes | Ótica Precision</title>
+<meta name="description" content="Ferramenta profissional para cálculo de espessura de lentes oftálmicas.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/form.css">
+<link rel="stylesheet" href="css/results.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/animations.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+<div class="bg-texture" aria-hidden="true"></div>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <svg class="brand-mark" width="40" height="40" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <circle cx="14" cy="20" r="10" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="26" cy="20" r="10" stroke="currentColor" stroke-width="1.6"/>
+        <line x1="20" y1="14" x2="20" y2="26" stroke="currentColor" stroke-width="1.2" opacity="0.5"/>
+      </svg>
+      <div class="brand-text">
+        <span class="brand-name">Optical<em>Pro</em></span>
+        <span class="brand-tagline">Cálculo óptico de espessura</span>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="meta-dot" aria-hidden="true"></span>
+      <span>Uso profissional &mdash; laboratório &amp; ótica</span>
+    </div>
+  </div>
+</header>
+
+<main class="app-shell">
+
+  <section class="hero" aria-hidden="true">
+    <h1 class="hero-title">Calcule a espessura<br><span class="hero-accent">antes de fabricar.</span></h1>
+    <p class="hero-sub">Insira a receita e os dados da armação. O sistema calcula a espessura de centro e borda para OD e OE com base no índice de refração escolhido.</p>
+  </section>
+
+  <div class="workspace">
+
+    <!-- FORM -->
+    <form id="lens-form" class="panel form-panel" novalidate>
+
+      <div class="panel-header">
+        <h2>Dados da receita</h2>
+        <span class="panel-index">01</span>
+      </div>
+
+      <div class="eye-grid">
+        <!-- OD -->
+        <fieldset class="eye-block" data-eye="OD">
+          <legend>Olho Direito <span class="legend-abbr">(OD)</span></legend>
+
+          <div class="field">
+            <label for="od-esferico">Grau esférico</label>
+            <input type="number" id="od-esferico" name="od-esferico" step="0.25" placeholder="-2.00" inputmode="decimal" required>
+            <span class="field-error" id="err-od-esferico" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="od-cilindrico">Grau cilíndrico</label>
+            <input type="number" id="od-cilindrico" name="od-cilindrico" step="0.25" placeholder="-0.75" inputmode="decimal">
+            <span class="field-error" id="err-od-cilindrico" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="od-eixo">Eixo</label>
+            <div class="field-suffix-wrap">
+              <input type="number" id="od-eixo" name="od-eixo" min="0" max="180" step="1" placeholder="90" inputmode="numeric">
+              <span class="field-suffix">&deg;</span>
+            </div>
+            <span class="field-error" id="err-od-eixo" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="od-dnp">DNP / DP</label>
+            <div class="field-suffix-wrap">
+              <input type="number" id="od-dnp" name="od-dnp" step="0.5" placeholder="31.5" inputmode="decimal" required>
+              <span class="field-suffix">mm</span>
+            </div>
+            <span class="field-error" id="err-od-dnp" role="alert"></span>
+          </div>
+        </fieldset>
+
+        <!-- OE -->
+        <fieldset class="eye-block" data-eye="OE">
+          <legend>Olho Esquerdo <span class="legend-abbr">(OE)</span></legend>
+
+          <div class="field">
+            <label for="oe-esferico">Grau esférico</label>
+            <input type="number" id="oe-esferico" name="oe-esferico" step="0.25" placeholder="-2.00" inputmode="decimal" required>
+            <span class="field-error" id="err-oe-esferico" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="oe-cilindrico">Grau cilíndrico</label>
+            <input type="number" id="oe-cilindrico" name="oe-cilindrico" step="0.25" placeholder="-0.75" inputmode="decimal">
+            <span class="field-error" id="err-oe-cilindrico" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="oe-eixo">Eixo</label>
+            <div class="field-suffix-wrap">
+              <input type="number" id="oe-eixo" name="oe-eixo" min="0" max="180" step="1" placeholder="90" inputmode="numeric">
+              <span class="field-suffix">&deg;</span>
+            </div>
+            <span class="field-error" id="err-oe-eixo" role="alert"></span>
+          </div>
+
+          <div class="field">
+            <label for="oe-dnp">DNP / DP</label>
+            <div class="field-suffix-wrap">
+              <input type="number" id="oe-dnp" name="oe-dnp" step="0.5" placeholder="31.5" inputmode="decimal" required>
+              <span class="field-suffix">mm</span>
+            </div>
+            <span class="field-error" id="err-oe-dnp" role="alert"></span>
+          </div>
+        </fieldset>
+      </div>
+
+      <div class="panel-divider"><span>Lente</span></div>
+
+      <div class="field-grid">
+        <div class="field">
+          <label for="indice">Índice de refração</label>
+          <select id="indice" name="indice" required>
+            <option value="1.49">1.49 &mdash; Resina padrão (CR-39)</option>
+            <option value="1.56">1.56 &mdash; Resina fina</option>
+            <option value="1.59">1.59 &mdash; Policarbonato</option>
+            <option value="1.61" selected>1.61 &mdash; Alto índice</option>
+            <option value="1.67">1.67 &mdash; Alto índice +</option>
+            <option value="1.74">1.74 &mdash; Ultra-fino</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label for="diametro">Diâmetro da lente</label>
+          <div class="field-suffix-wrap">
+            <input type="number" id="diametro" name="diametro" step="0.5" placeholder="65" inputmode="decimal" required>
+            <span class="field-suffix">mm</span>
+          </div>
+          <span class="field-error" id="err-diametro" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="tipo-lente">Tipo de lente</label>
+          <select id="tipo-lente" name="tipo-lente" required>
+            <option value="simples">Visão Simples</option>
+            <option value="bifocal">Bifocal</option>
+            <option value="multifocal">Multifocal</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="panel-divider"><span>Armação</span></div>
+
+      <div class="field-grid field-grid-4">
+        <div class="field">
+          <label for="armacao-a">Horizontal (A)</label>
+          <div class="field-suffix-wrap">
+            <input type="number" id="armacao-a" name="armacao-a" step="0.5" placeholder="52" inputmode="decimal" required>
+            <span class="field-suffix">mm</span>
+          </div>
+          <span class="field-error" id="err-armacao-a" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="armacao-b">Altura (B)</label>
+          <div class="field-suffix-wrap">
+            <input type="number" id="armacao-b" name="armacao-b" step="0.5" placeholder="36" inputmode="decimal" required>
+            <span class="field-suffix">mm</span>
+          </div>
+          <span class="field-error" id="err-armacao-b" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="ponte">Ponte (DBL)</label>
+          <div class="field-suffix-wrap">
+            <input type="number" id="ponte" name="ponte" step="0.5" placeholder="18" inputmode="decimal" required>
+            <span class="field-suffix">mm</span>
+          </div>
+          <span class="field-error" id="err-ponte" role="alert"></span>
+        </div>
+
+        <div class="field">
+          <label for="tipo-armacao">Tipo de armação</label>
+          <select id="tipo-armacao" name="tipo-armacao" required>
+            <option value="fechado">Aro Fechado</option>
+            <option value="nylon">Nylon (Fio)</option>
+            <option value="tres-pecas">Três Peças</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn btn-primary">
+          <span>Calcular espessura</span>
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+        <button type="button" class="btn btn-ghost" id="btn-clear">Limpar campos</button>
+      </div>
+    </form>
+
+    <!-- RESULTS -->
+    <section class="panel results-panel" id="results-panel" aria-live="polite">
+
+      <div class="panel-header">
+        <h2>Resultado</h2>
+        <span class="panel-index">02</span>
+      </div>
+
+      <div class="results-empty" id="results-empty">
+        <svg width="56" height="56" viewBox="0 0 56 56" fill="none" aria-hidden="true">
+          <circle cx="22" cy="28" r="14" stroke="currentColor" stroke-width="1.3" opacity="0.35"/>
+          <circle cx="36" cy="28" r="14" stroke="currentColor" stroke-width="1.3" opacity="0.35"/>
+        </svg>
+        <p>Preencha a receita ao lado para ver a estimativa de espessura de cada lente.</p>
+      </div>
+
+      <div class="results-content" id="results-content" hidden>
+
+        <div class="lens-cards">
+          <article class="lens-card" id="card-od">
+            <div class="lens-card-head">
+              <h3>Olho Direito <span>OD</span></h3>
+              <span class="lens-badge" id="od-badge">&mdash;</span>
+            </div>
+
+            <div class="lens-visual" id="od-visual" aria-hidden="true"></div>
+
+            <dl class="lens-metrics">
+              <div class="metric metric-highlight">
+                <dt>Espessura de centro</dt>
+                <dd id="od-centro">&mdash;</dd>
+              </div>
+              <div class="metric metric-highlight">
+                <dt>Espessura de borda</dt>
+                <dd id="od-borda">&mdash;</dd>
+              </div>
+              <div class="metric">
+                <dt>Poder equivalente</dt>
+                <dd id="od-poder">&mdash;</dd>
+              </div>
+              <div class="metric">
+                <dt>Raio do semi-diâmetro</dt>
+                <dd id="od-raio">&mdash;</dd>
+              </div>
+            </dl>
+          </article>
+
+          <article class="lens-card" id="card-oe">
+            <div class="lens-card-head">
+              <h3>Olho Esquerdo <span>OE</span></h3>
+              <span class="lens-badge" id="oe-badge">&mdash;</span>
+            </div>
+
+            <div class="lens-visual" id="oe-visual" aria-hidden="true"></div>
+
+            <dl class="lens-metrics">
+              <div class="metric metric-highlight">
+                <dt>Espessura de centro</dt>
+                <dd id="oe-centro">&mdash;</dd>
+              </div>
+              <div class="metric metric-highlight">
+                <dt>Espessura de borda</dt>
+                <dd id="oe-borda">&mdash;</dd>
+              </div>
+              <div class="metric">
+                <dt>Poder equivalente</dt>
+                <dd id="oe-poder">&mdash;</dd>
+              </div>
+              <div class="metric">
+                <dt>Raio do semi-diâmetro</dt>
+                <dd id="oe-raio">&mdash;</dd>
+              </div>
+            </dl>
+          </article>
+        </div>
+
+        <div class="advisory" id="advisory" hidden>
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="7.5" stroke="currentColor" stroke-width="1.3"/><path d="M9 6v4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/><circle cx="9" cy="12" r="0.8" fill="currentColor"/></svg>
+          <p id="advisory-text"></p>
+        </div>
+
+        <p class="results-disclaimer">Estimativa baseada em fórmula de curvatura de lente fina. Valores reais podem variar conforme curva-base, desenho óptico e processo de bisel do laboratório.</p>
+      </div>
+    </section>
+
+  </div>
+</main>
+
+<footer class="site-footer">
+  <p>PrecisionLab &mdash; ferramenta de apoio técnico para óticas e laboratórios. Não substitui o julgamento do laboratorista.</p>
+</footer>
+
+<div class="toast" id="toast" role="alert" aria-live="assertive"></div>
+
+<script src="js/validation.js"></script>
+<script src="js/lensMath.js"></script>
+<script src="js/lensVisual.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
