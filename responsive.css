@@ -1,0 +1,87 @@
+/* =========================================================
+   RESPONSIVE — tablet e smartphone
+   ========================================================= */
+
+/* --- Tablet --- */
+@media (max-width: 1024px) {
+  .app-shell { padding: var(--sp-8) var(--sp-6) var(--sp-16); }
+
+  .workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .results-panel {
+    position: static;
+  }
+
+  .hero-title { font-size: var(--fs-2xl); }
+}
+
+/* --- Mobile grande / tablet pequeno --- */
+@media (max-width: 760px) {
+  .header-inner {
+    padding: var(--sp-4) var(--sp-5);
+  }
+
+  .header-meta { display: none; }
+
+  .brand-tagline { display: none; }
+
+  .app-shell { padding: var(--sp-6) var(--sp-4) var(--sp-14); }
+
+  .hero { margin-bottom: var(--sp-6); }
+
+  .hero-title { font-size: var(--fs-xl); }
+
+  .hero-sub { font-size: var(--fs-sm); }
+
+  .form-panel, .results-panel {
+    padding: var(--sp-5);
+    border-radius: var(--radius-lg);
+  }
+
+  .eye-grid {
+    grid-template-columns: 1fr;
+    gap: var(--sp-4);
+  }
+
+  .field-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .field-grid-4 {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .form-actions {
+    flex-direction: column-reverse;
+  }
+
+  .btn { width: 100%; }
+
+  .lens-metrics {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* --- Smartphone pequeno --- */
+@media (max-width: 420px) {
+  .field-grid,
+  .field-grid-4 {
+    grid-template-columns: 1fr;
+  }
+
+  .panel-header h2 { font-size: var(--fs-lg); }
+
+  .brand-name { font-size: var(--fs-md); }
+
+  .toast {
+    left: var(--sp-4);
+    right: var(--sp-4);
+    bottom: var(--sp-5);
+    transform: translateY(20px);
+    max-width: none;
+  }
+
+  .toast.is-visible { transform: translateY(0); }
+}

@@ -1,0 +1,64 @@
+/* =========================================================
+   ANIMATIONS — transições de entrada, shake de erro, reveal
+   ========================================================= */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-3px); }
+  40%, 60% { transform: translateX(3px); }
+}
+
+@keyframes drawLens {
+  from { stroke-dashoffset: var(--dash, 240); opacity: 0; }
+  to { stroke-dashoffset: 0; opacity: 1; }
+}
+
+.results-content {
+  animation: fadeUp var(--dur-slow) var(--ease-standard);
+}
+
+.lens-card {
+  animation: fadeUp var(--dur-slow) var(--ease-standard) backwards;
+}
+
+.lens-card#card-od { animation-delay: 0ms; }
+.lens-card#card-oe { animation-delay: 90ms; }
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  animation: shake 320ms var(--ease-soft);
+}
+
+.lens-visual svg .lens-path {
+  animation: drawLens 700ms var(--ease-standard) forwards;
+}
+
+.hero-title, .hero-sub {
+  animation: fadeUp var(--dur-slow) var(--ease-standard) backwards;
+}
+
+.hero-sub { animation-delay: 90ms; }
+
+.panel.form-panel { animation: fadeIn var(--dur-slow) var(--ease-standard); }
+
+@media (prefers-reduced-motion: reduce) {
+  .results-content, .lens-card, .hero-title, .hero-sub, .panel.form-panel {
+    animation: none;
+  }
+  .lens-visual svg .lens-path {
+    animation: none;
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+}

@@ -1,0 +1,35 @@
+/* =========================================================
+   COMPONENTS — toast de notificação
+   ========================================================= */
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: var(--sp-8);
+  transform: translateX(-50%) translateY(20px);
+  background: var(--navy-950);
+  color: var(--white);
+  padding: var(--sp-4) var(--sp-6);
+  border-radius: var(--radius-md);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-standard), transform var(--dur-base) var(--ease-standard);
+  z-index: 100;
+  max-width: min(420px, calc(100vw - var(--sp-8)));
+  border-left: 3px solid var(--gold-500);
+}
+
+.toast.is-visible {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+.toast.is-error {
+  border-left-color: var(--error-600);
+}

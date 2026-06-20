@@ -1,0 +1,104 @@
+/* =========================================================
+   DESIGN TOKENS — PrecisionLab
+   Paleta: azul-marinho profundo + dourado, sobre branco/marfim.
+   ========================================================= */
+
+:root {
+  /* --- Cor: base --- */
+  --navy-950: #07101F;
+  --navy-900: #0A1A33;
+  --navy-800: #13294B;
+  --navy-700: #1C3760;
+  --navy-600: #2A4A7F;
+  --navy-100: #E7ECF4;
+  --navy-50:  #F3F5FA;
+
+  --gold-600: #A87F2E;
+  --gold-500: #C9A24B;
+  --gold-400: #DCBE7A;
+  --gold-100: #F6EDDA;
+
+  --paper: #FBFAF7;
+  --white: #FFFFFF;
+
+  --ink-900: #10141C;
+  --ink-700: #3A4150;
+  --ink-500: #6B7280;
+  --ink-300: #A8AEB9;
+  --ink-200: #D8DCE3;
+  --ink-100: #ECEFF3;
+
+  --error-600: #B23A2E;
+  --error-100: #FBEAE7;
+  --success-600: #2E7D5B;
+  --success-100: #E6F3ED;
+
+  /* --- Cor: papéis semânticos --- */
+  --color-bg: var(--paper);
+  --color-surface: var(--white);
+  --color-surface-sunken: var(--navy-50);
+  --color-border: var(--ink-200);
+  --color-text: var(--ink-900);
+  --color-text-muted: var(--ink-500);
+  --color-accent: var(--gold-500);
+  --color-accent-strong: var(--gold-600);
+  --color-primary: var(--navy-900);
+  --color-primary-strong: var(--navy-950);
+
+  /* --- Tipografia --- */
+  --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Space Mono', 'SF Mono', Consolas, monospace;
+
+  --fs-2xs: 0.6875rem;
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.25rem;
+  --fs-xl: 1.625rem;
+  --fs-2xl: 2.125rem;
+  --fs-3xl: 2.875rem;
+
+  --lh-tight: 1.15;
+  --lh-snug: 1.35;
+  --lh-normal: 1.55;
+
+  /* --- Espaçamento (escala 4px) --- */
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.25rem;
+  --sp-6: 1.5rem;
+  --sp-8: 2rem;
+  --sp-10: 2.5rem;
+  --sp-12: 3rem;
+  --sp-16: 4rem;
+  --sp-20: 5rem;
+
+  /* --- Raio --- */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 22px;
+  --radius-pill: 999px;
+
+  /* --- Sombra --- */
+  --shadow-sm: 0 1px 2px rgba(10, 26, 51, 0.06);
+  --shadow-md: 0 4px 16px rgba(10, 26, 51, 0.08);
+  --shadow-lg: 0 16px 40px rgba(10, 26, 51, 0.14);
+  --shadow-gold: 0 8px 24px rgba(169, 130, 50, 0.22);
+  --shadow-inset-navy: inset 0 1px 0 rgba(255,255,255,0.06);
+
+  /* --- Transição --- */
+  --ease-standard: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-soft: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 150ms;
+  --dur-base: 260ms;
+  --dur-slow: 480ms;
+
+  /* --- Layout --- */
+  --content-max: 1180px;
+  --border-hairline: 1px solid var(--color-border);
+}

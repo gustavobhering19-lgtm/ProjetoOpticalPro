@@ -1,0 +1,173 @@
+/* =========================================================
+   RESULTS — cartões de lente, visual de corte, métricas
+   ========================================================= */
+
+.results-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--sp-4);
+  padding: var(--sp-12) var(--sp-6);
+  color: var(--ink-300);
+}
+
+.results-empty p {
+  font-size: var(--fs-sm);
+  color: var(--ink-500);
+  max-width: 28ch;
+}
+
+.lens-cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.lens-card {
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5);
+  background: linear-gradient(180deg, var(--white), var(--navy-50) 140%);
+  position: relative;
+  overflow: hidden;
+}
+
+.lens-card::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--navy-800), var(--gold-500));
+}
+
+.lens-card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: var(--sp-3);
+}
+
+.lens-card-head h3 {
+  font-size: var(--fs-base);
+  font-family: var(--font-body);
+  font-weight: 700;
+  color: var(--navy-900);
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-2);
+}
+
+.lens-card-head h3 span {
+  font-family: var(--font-mono);
+  font-size: var(--fs-2xs);
+  background: var(--navy-900);
+  color: var(--gold-400);
+  padding: 2px 7px;
+  border-radius: var(--radius-sm);
+  letter-spacing: 0.04em;
+}
+
+.lens-badge {
+  font-size: var(--fs-2xs);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  background: var(--gold-100);
+  color: var(--gold-600);
+  white-space: nowrap;
+}
+
+.lens-badge.is-thick {
+  background: var(--error-100);
+  color: var(--error-600);
+}
+
+.lens-badge.is-balanced {
+  background: var(--success-100);
+  color: var(--success-600);
+}
+
+/* --- Visual de corte da lente (SVG renderizado via JS) --- */
+.lens-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 96px;
+  margin: var(--sp-2) 0 var(--sp-4);
+}
+
+.lens-visual svg {
+  height: 100%;
+  width: auto;
+  overflow: visible;
+}
+
+.lens-metrics {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-3);
+  margin: 0;
+}
+
+.metric {
+  background: var(--white);
+  border: var(--border-hairline);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3);
+}
+
+.metric dt {
+  font-size: var(--fs-2xs);
+  color: var(--ink-500);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: var(--sp-1);
+}
+
+.metric dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--navy-900);
+}
+
+.metric-highlight {
+  background: linear-gradient(135deg, var(--navy-900), var(--navy-800));
+  border-color: var(--navy-900);
+}
+
+.metric-highlight dt { color: var(--gold-300, var(--gold-400)); opacity: 0.85; }
+.metric-highlight dd { color: var(--white); }
+
+/* --- Aviso consultivo (ex: lente espessa, sugerir índice maior) --- */
+.advisory {
+  display: flex;
+  gap: var(--sp-3);
+  align-items: flex-start;
+  background: var(--gold-100);
+  border: 1px solid var(--gold-400);
+  border-radius: var(--radius-md);
+  padding: var(--sp-4);
+  margin-top: var(--sp-5);
+  color: var(--gold-600);
+}
+
+.advisory svg { flex-shrink: 0; margin-top: 2px; }
+
+.advisory p {
+  font-size: var(--fs-sm);
+  color: #5C461C;
+  line-height: var(--lh-snug);
+}
+
+.results-disclaimer {
+  font-size: var(--fs-2xs);
+  color: var(--ink-300);
+  margin-top: var(--sp-6);
+  text-align: center;
+  line-height: var(--lh-snug);
+}

@@ -1,0 +1,179 @@
+/* =========================================================
+   FORM — campos, fieldsets OD/OE, botões de ação
+   ========================================================= */
+
+.eye-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+}
+
+.eye-block {
+  border: var(--border-hairline);
+  border-radius: var(--radius-lg);
+  padding: var(--sp-5) var(--sp-4) var(--sp-4);
+  background: var(--color-surface-sunken);
+  position: relative;
+}
+
+.eye-block[data-eye="OD"] { border-top: 2px solid var(--navy-700); }
+.eye-block[data-eye="OE"] { border-top: 2px solid var(--gold-500); }
+
+.eye-block legend {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 600;
+  color: var(--navy-900);
+  padding: 0 var(--sp-2);
+}
+
+.legend-abbr {
+  color: var(--ink-500);
+  font-family: var(--font-mono);
+  font-weight: 400;
+  font-size: var(--fs-xs);
+}
+
+.field {
+  margin-bottom: var(--sp-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+}
+
+.field:last-child { margin-bottom: 0; }
+
+.field label {
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--ink-700);
+  letter-spacing: 0.01em;
+}
+
+.field input,
+.field select {
+  border: 1.5px solid var(--ink-200);
+  border-radius: var(--radius-md);
+  padding: var(--sp-3) var(--sp-3);
+  background: var(--white);
+  font-size: var(--fs-base);
+  color: var(--ink-900);
+  transition: border-color var(--dur-fast) var(--ease-soft), box-shadow var(--dur-fast) var(--ease-soft);
+  width: 100%;
+}
+
+.field input::placeholder { color: var(--ink-300); }
+
+.field input:hover,
+.field select:hover { border-color: var(--ink-300); }
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--gold-500);
+  box-shadow: 0 0 0 3px rgba(201, 162, 75, 0.16);
+  outline: none;
+}
+
+.field input[aria-invalid="true"],
+.field select[aria-invalid="true"] {
+  border-color: var(--error-600);
+  background: var(--error-100);
+}
+
+.field input[aria-invalid="true"]:focus {
+  box-shadow: 0 0 0 3px rgba(178, 58, 46, 0.14);
+}
+
+.field select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%233A4150' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right var(--sp-3) center;
+  padding-right: var(--sp-8);
+}
+
+.field-suffix-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.field-suffix-wrap input {
+  padding-right: var(--sp-10);
+}
+
+.field-suffix {
+  position: absolute;
+  right: var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--ink-300);
+  font-family: var(--font-mono);
+  pointer-events: none;
+}
+
+.field-error {
+  font-size: var(--fs-2xs);
+  color: var(--error-600);
+  min-height: 1em;
+  display: block;
+}
+
+/* --- Grids genéricos de campo --- */
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-4);
+}
+
+.field-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Ações do formulário --- */
+.form-actions {
+  display: flex;
+  gap: var(--sp-3);
+  margin-top: var(--sp-8);
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-2);
+  border: none;
+  border-radius: var(--radius-pill);
+  padding: var(--sp-3) var(--sp-6);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  transition: transform var(--dur-fast) var(--ease-soft), box-shadow var(--dur-fast) var(--ease-soft), background var(--dur-fast) var(--ease-soft);
+}
+
+.btn:active { transform: translateY(1px); }
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--navy-800), var(--navy-950));
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+  flex: 1;
+}
+
+.btn-primary svg { transition: transform var(--dur-base) var(--ease-standard); }
+
+.btn-primary:hover {
+  box-shadow: var(--shadow-lg), 0 0 0 1px var(--gold-500) inset;
+}
+
+.btn-primary:hover svg { transform: translateX(3px); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--ink-500);
+  border: 1.5px solid var(--ink-200);
+}
+
+.btn-ghost:hover {
+  border-color: var(--navy-700);
+  color: var(--navy-900);
+  background: var(--navy-50);
+}
